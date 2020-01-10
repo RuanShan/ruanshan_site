@@ -1,0 +1,12 @@
+<nav id="mobile-navigation" class="tg-mobile-navigation">
+  <div class="menu-primary-menu-container">
+    <ul id="primary-menu" class="menu">
+      {{#each @mainmenu }}
+        <li class="menu-item menu-item-type-post_type menu-item-object-page {{#isCurrentUrl url}} current-menu-item  {{/isCurrentUrl}}">
+          <a href="{{url}}">{{{title}}}</a>
+        </li>
+      {{/each}}
+      <li class="menu-item tg-header-button-wrap"><a href="#" target="&quot;_blank&quot;">Get it now</a></li>
+    </ul>
+  </div><span class="tg-mobile-navigation-close"></span>
+</nav>

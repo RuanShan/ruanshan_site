@@ -1,0 +1,36 @@
+
+<aside id="secondary" class="widget-area ">
+  {{#if categories.length }}
+
+	<section class="widget widget_categories">
+	<h2 class="widget-title">分类</h2>
+	<ul>
+    {{#each categories as |category idx| }}
+    <li class="cat-item current-cat">
+      <a href="/posts/category/{{category.id}}">
+        {{{category.name}}}
+      </a>
+    </li>
+    {{/each}}
+	</ul>
+	</section>
+  {{/if}}
+
+  {{#if tags.length }}
+  <div id="sidebar-tags">
+  <h3>Tags</h3>
+  <ul>
+    {{#each tags as |tag idx| }}
+    {{!-- Render out the first 30 tags... --}}
+    <li>
+      <a href="/tags/{{tag.slug}}">
+        {{{tag.name}}}
+      </a>
+    </li>
+    {{!-- After 30 tags, start a new list --}}
+
+    {{/each}}
+  </ul>
+  </div>
+  {{/if}}
+</aside>

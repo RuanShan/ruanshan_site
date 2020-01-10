@@ -1,0 +1,81 @@
+{{> header }}
+<main id="main" class="site-main  case-detail-wrap">
+  {{> pageHeader }}
+
+  <div id="content" class="site-content case-detail">
+
+    <div class="tg-container tg-container--flex tg-container--flex-space-between">
+      <div id="primary" class="">
+        <div class="wrapper ">
+          <div  class="case-detail-box">
+             <div  class="msg-box">
+              <div  class="title-box">
+                <h1  class="title">{{gameRound.name}}</h1>
+                <p  class="time"></p>
+              </div>
+              <div  class="msg-three-box">
+                <div  class="msg-item">
+                  <p  class="num">
+                    {{gameRound.finalResultCount}}
+                  </p>
+                  <p >总票数</p>
+                </div>
+                <div  class="msg-item">
+                  <p  class="num">
+                    {{gameRound.album_count}}
+                  </p>
+                  <p >选手数</p>
+                </div>
+                <div  class="msg-item">
+                  <p  class="num">
+                    {{gameRound.finalVisitCount}}
+                  </p>
+                  <p >访问量</p>
+                </div>
+              </div>
+
+              <div class="mobile-entry-wrap">
+                <a class="btn " href="{{gamePreviewUrl gameRound}}" role="button">进入活动</a>
+              </div>
+
+              <div  class="act-intro mb20">
+                <h2  class="b-title">微信投票活动介绍</h2>
+                <div  class="line"></div>
+                <div  class="htmlWarp">
+                  <pre class="html">
+                    {{{gameRound.desc}}}
+                  </pre>
+                </div>
+              </div>
+              <div  class="act-item">
+                <h2  class="b-title">微信投票参赛选手</h2>
+                <div  class="line"></div>
+                <div  class="act-item-list flex-b f14 c3">
+
+                  {{#each gameAlbums as |album idx|}}
+                  <div >
+                    <div class="cover-div" style="background-image: url({{albumPhotoUrl album}});"></div>
+                    <div  class="flex-b mt10 mb5"><span >{{album.position}}</span> <span >{{album.score}}票</span></div>
+                    <div >{{album.name}}</div>
+                  </div>
+                  {{/each}}
+
+                </div>
+              </div>
+              <div  class="more-act f14">
+                {{#if preGameRound}}
+                <div  class="mb10 flex-s"><span  class="mr5 c6">上一个活动</span> <a  href="{{caseUrl preGameRound}}" class="ellipsis" style="width: 450px;">{{preGameRound.name}}</a></div>
+                {{/if}}
+                {{#if nextGameRound}}
+                <div  class="flex-s"><span  class="mr5 c6">下一个活动</span> <a  href="{{caseUrl nextGameRound}}" class="ellipsis" style="width: 450px;">{{nextGameRound.name}}</a></div>
+                {{/if}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- #primary -->
+
+    </div>
+  </div><!-- #content -->
+</main>
+{{> footer }}

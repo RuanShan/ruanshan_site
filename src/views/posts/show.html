@@ -1,0 +1,59 @@
+{{> header }}
+<main id="main" class="site-main">
+
+  {{> pageDetailHeader }}
+
+  <div id="content" class="posts site-content">
+
+    <div class="tg-container tg-container--flex tg-container--flex-space-between">
+      <div id="primary" class="">
+        <div class="row">
+            <div class="post col-sm-12 hentry">
+              <div class="cover post-thumbnail">
+                  {{#each post.Covers as |cover|}}
+                      <img src="{{cover.originalUrl}}" alt="cover"/>
+                  {{/each}}
+              </div>
+              <div class="entry-meta text-muted">
+                <div clss="item">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{post.author}}
+                </div>
+                <div clss="item">
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{formatDatetime post.publish_at}}
+                </div>
+                <div clss="item">
+                <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+                  {{#each post.Terms as |term|}}
+                      <span class="term"> {{term.name}} </span>
+                  {{/each}}
+                </div>
+              </div>
+              <div class="entry-content">
+                  {{{post.content}}}
+              </div>
+            </div>{{!-- .post --}}
+
+
+        </div><!-- .row -->
+        <div >
+          <nav class="navigation post-navigation" role="navigation">
+            <h2 class="screen-reader-text">Post navigation</h2>
+            <div class="nav-links">
+              {{#if prePost}}
+              <div class="nav-previous"><a href="{{postUrl prePost}}" rel="prev">{{prePost.title}}</a>
+              </div>
+              {{/if}}
+              {{#if nextPost}}
+              <div class="nav-next"><a href="{{postUrl nextPost}}" rel="next">{{nextPost.title}}</a>
+              </div>
+              {{/if}}
+
+            </div>
+          </nav>        </div>
+      </div><!-- #primary -->
+
+      {{> sidebar2 sidebar }}
+    </div>
+  </div><!-- #content -->
+</main>
+{{> footer }}

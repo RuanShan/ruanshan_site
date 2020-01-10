@@ -1,0 +1,10 @@
+{{> header }}
+
+    <h1>
+      {{ message }}
+      <small>{{ error.status }}</small>
+    </h1>
+    {%if error.stack %}
+    <pre>{{{ error.stack }}}</pre>
+    {%endif%}
+{{> footer }}

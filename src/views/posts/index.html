@@ -1,0 +1,59 @@
+{{> header }}
+<main id="main" class="site-main">
+
+  {{> pageHeader }}
+
+  <div id="content" class="posts site-content">
+
+    <div class="tg-container tg-container--flex tg-container--flex-space-between">
+      <div id="primary" class="">
+        <div class="row">
+          {{#each posts as |post idx|}}
+            <div class="post col-sm-12 hentry">
+              <div class="cover">
+                <a class="post-thumbnail" href="{{postUrl post}}">
+                  {{#each post.Covers as |cover|}}
+                      <img src="{{cover.previewUrl}}" alt="cover"/>
+                  {{/each}}
+                </a>
+              </div>
+              <h2 class="entry-title">
+                <a href="{{postUrl post}}" >  {{{post.title}}}  </a>
+              </h2>
+              <div class="entry-meta text-muted">
+                <div clss="item">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{post.author}}
+                </div>
+                <div clss="item">
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{formatDatetime post.created_at}}
+                </div>
+                <div clss="item">
+                <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+                  {{#each post.Terms as |term|}}
+                      <span class="term"> {{term.name}} </span>
+                  {{/each}}
+                </div>
+              </div>
+              <div class="entry-content">
+                {{#if post.excerpt}}
+                  <p>{{{post.excerpt}}}</p>
+                {{/if}}
+                <div class="tg-read-more-wrapper clearfix tg-text-align--left"> <a href="{{postUrl post}}" class="tg-read-more"> 详细</a></div>
+              </div>
+            </div>{{!-- .post --}}
+
+          {{/each}}
+
+        </div><!-- .row -->
+        <div class="row">
+          <div class="col-md-12">
+            {{> pagination }}
+          </div>
+        </div>
+      </div><!-- #primary -->
+
+      {{> sidebar2 sidebar }}
+    </div>
+  </div><!-- #content -->
+</main>
+{{> footer }}

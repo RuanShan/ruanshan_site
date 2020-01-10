@@ -1,0 +1,56 @@
+a:focus, a:hover{
+    text-decoration: none;
+}
+* {
+    font-family: Microsoft YaHei,微软雅黑,PingFang SC,Arial;
+}
+.ellipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.placeholder{
+  background-position: center;
+  background-size: cover;
+  background-image: url('../image/placeholder.jpg');
+}
+
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+.mb20 {
+    margin-bottom: 20px!important;
+}
+.f16 {
+    font-size: 16px;
+}
+.p20  {
+    padding: 20px!important;
+}
+.blue {
+    color: #176eca;
+}
+
+.f14 {
+    font-size: 14px;
+}
+
+header.tg-site-header {
+  padding: 0;
+}
+
+.list-unstyled {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.tg-site-footer-bar{
+
+}

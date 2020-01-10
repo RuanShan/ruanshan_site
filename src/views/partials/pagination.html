@@ -1,0 +1,22 @@
+<nav aria-label="Page navigation">
+  {{#if pagination.pageCount}}
+
+  <ul class="pagination pagination-centered">
+
+    {{#paginate pagination type="previous"}}
+      {{#unless disabled}}
+      <li {{#if disabled}}class="disabled"{{/if}}><a href="?page={{n}}">上一页</a></li>
+      {{/unless}}
+    {{/paginate}}
+    {{#paginate pagination type="middle" limit="5"}}
+      <li {{#if active}}class="active"{{/if}}><a href="?page={{n}}">{{n}}</a></li>
+    {{/paginate}}
+    {{#paginate pagination type="next"}}
+      {{#unless disabled}}
+      <li {{#if disabled}}class="disabled"{{/if}}><a href="?page={{n}}">下一页</a></li>
+      {{/unless}}
+    {{/paginate}}
+
+  </ul>
+  {{/if}}
+</nav>

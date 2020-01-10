@@ -1,0 +1,35 @@
+'use strict';
+
+var Promise = require( 'es6-promise' );
+var _ = require( 'lodash' );
+var wp = require( '../services/wp' );
+var contentService = require( '../services/content-service' );
+var pageTitle = require( '../services/page-title' );
+
+function getSinglePost( req, res, next ) {
+  var post = wp.posts().filter({
+    monthnum: req.params.month,
+    year: req.params.year,
+    name: req.params.slug
+  }).then(function( posts ) {
+    return _.first( posts );
+  });
+
+  Promise.hash({
+    title: post.then(function( post ) {
+      return pageTitle( post && post.title );
+    }),
+    // Primary page content
+    post: post,
+    sidebar: contentService.getSidebarContent()
+  }).then(function( context ) {
+    if ( ! context.post ) {
+      // No post found: 404
+      return next();
+    }
+
+    res.render( 'single', context );
+  }).catch( next );
+}
+
+module.exports = getSinglePost;
