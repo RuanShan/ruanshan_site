@@ -43,7 +43,7 @@
     "interval-cache": "^1.0.0",
     "ioredis": "^3.2.2",
     "kcors": "^2.2.1",
-    "knex": "^0.15.0",
+    "knex": "^0.19.5",
     "koa": "^2.5.0",
     "koa-better-static2": "^1.0.2",
     "koa-bodyparser": "^4.2.0",
