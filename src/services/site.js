@@ -5,18 +5,18 @@ const mainmenu = [{
     url: '/services',
     title: '服务',
     submenus:[
-      {title: '网站建设'},
-      {title: 'h5游戏'},
-      {title: '定制开发'},
-      {title: '微信相关开发'},
+      {title: '网站建设', url: '/service-website'},
+      {title: 'h5游戏', url: '/service-h5'},
+      {title: '定制开发', url: '/service-soft'},
+      {title: '微信相关开发', url: '/service-wx'},
     ]
 
   }, {
     url: '/products',
     title: '产品',
     submenus:[
-      {title: '店加'},
-      {title: '星投票'}
+      {title: '店加', url: '/product-getstore'},
+      {title: '星投票', url: '/product-ztoupiao'}
     ]
   }, {
     url: '/case',

@@ -51,6 +51,7 @@ header.tg-site-header {
   list-style: none;
 }
 
-.tg-site-footer-bar{
-
+.site-content{
+  margin-top: 0;
+  margin-bottom: 0;
 }

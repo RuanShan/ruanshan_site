@@ -10,7 +10,7 @@ const currentPage = {   }
 const termHelpRootId = 4
 
 
-class PagesController {
+class ServicesController {
     async index(ctx) {
         const query = ctx.query
         // Home 案例 动态 帮助 关于 Contact 创建
@@ -58,7 +58,7 @@ class PagesController {
             //sidebar: contentService.getSidebarContent()
           })
 
-          await ctx.render( 'service-website', context )
+          await ctx.render( 'services/website', context )
 
         } catch (error) {
             console.log(error)
@@ -71,7 +71,7 @@ class PagesController {
         // Home 案例 动态 帮助 关于 Contact 创建
 
         const posts = [] //WpPost.findAll()
-        const pageHeader = { title: '企业建站的优质选择', desc: ''}
+        const pageHeader = { title: '单日流量过万 高转化 那是相当轻松的', desc: ''}
 
         //Get paginated list of notes
         try {
@@ -83,7 +83,7 @@ class PagesController {
             //sidebar: contentService.getSidebarContent()
           })
 
-          await ctx.render( 'service-h5', context )
+          await ctx.render( 'services/h5', context )
 
         } catch (error) {
             console.log(error)
@@ -91,24 +91,60 @@ class PagesController {
         }
     }
 
-    async aboutUs(ctx){
-      let currentTerm = {name: '关于我们'}
 
-      let context = {currentPage, currentTerm}
-      await ctx.render( 'about-us', context )
+    async serviceSoft(ctx) {
+        const query = ctx.query
+        // Home 案例 动态 帮助 关于 Contact 创建
 
+        const posts = [] //WpPost.findAll()
+        const pageHeader = { title: '系统以人为本，适合的就是最好的', desc: ''}
+
+        //Get paginated list of notes
+        try {
+
+          let context = await Promise.hash({
+            pageHeader,
+            title: 'pageTitle',
+            // Primary page content
+            //sidebar: contentService.getSidebarContent()
+          })
+
+          await ctx.render( 'services/soft', context )
+
+        } catch (error) {
+            console.log(error)
+            ctx.throw(400, 'INVALID_DATA' + error)
+        }
     }
-    async faq(ctx){
-      let currentTerm = {name: '帮助'}
-      let context = {
-        currentPage,
-        currentTerm
-      }
-      await ctx.render( 'faq', context )
 
+    async serviceWx(ctx) {
+        const query = ctx.query
+        // Home 案例 动态 帮助 关于 Contact 创建
+
+        const posts = [] //WpPost.findAll()
+        const pageHeader = { title: '微信-移动互联网的流量第一入口', desc: '无论你想做什么，都不能忽略它！'}
+
+        //Get paginated list of notes
+        try {
+
+          let context = await Promise.hash({
+            pageHeader,
+            title: 'pageTitle',
+            // Primary page content
+            //sidebar: contentService.getSidebarContent()
+          })
+
+          await ctx.render( 'services/wx', context )
+
+        } catch (error) {
+            console.log(error)
+            ctx.throw(400, 'INVALID_DATA' + error)
+        }
     }
+
+
 }
 
 
 
-export default PagesController
+export default ServicesController

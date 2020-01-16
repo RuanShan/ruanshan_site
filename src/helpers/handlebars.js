@@ -35,7 +35,7 @@ function ifDevice( device, options ){
   return options.inverse(this);
 
 }
- 
+
 function postUrl(post, options) {
   // /{{post.date|get-year}}/{{post.date|get-month}}/{{post.slug}}
   return new Handlebars.SafeString(`/posts/detail/${post.id}`);
@@ -119,13 +119,17 @@ function bodyCssClass( options ){
   if( userAgent.isDesktop ){
     css+= 'desktop '
   }
-  if( options.data.view=='index' ){
-    css+='page-template-pagebuilder tg-site-layout--stretched'
-  }else if ( this.currentPage.type=='news' ){
-    //
-  }else{
-    css+= 'tg-site-layout--no-sidebar'
-  }
+
+  // if( options.data.view=='index' ){
+  //   css+='page-template-pagebuilder tg-site-layout--stretched'
+  // }else if ( this.currentPage.type=='news' ){
+  //   //
+  // }else{
+  //   css+= 'tg-site-layout--no-sidebar'
+  // }
+  // 'cases/index' => 'cases-index'
+  let view = options.data.view.replace('/', '-')
+  css+= view
   return css
 }
 
