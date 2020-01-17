@@ -82,7 +82,8 @@
     transition: all .15s;
 }
 
-.index-basic-item-box p{
+.index-basic-item-box ul{
+  list-style-type: none;
     margin: 0 0 16px;
     line-height: 1;
     font-size: 16px;
@@ -269,7 +270,7 @@
     object-fit: contain;
 }
 .index-customers{
-  padding: 0 0 52px 0;  
+  padding: 0 0 52px 0;
 }
 
 .index-customers .customer{
