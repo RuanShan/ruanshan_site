@@ -41,8 +41,9 @@ a:focus, a:hover{
     font-size: 14px;
 }
 
-header.tg-site-header {
+.site-header {
   padding: 0;
+  width: 100%;
 }
 
 .list-unstyled {
@@ -54,4 +55,12 @@ header.tg-site-header {
 .site-content{
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.site-header.shadow  {
+	box-shadow: rgba(0,0,0,.2) 0 1px 8px 0;
+}
+.site-header.fixed  {
+  position: fixed;
+  top: 0;
 }

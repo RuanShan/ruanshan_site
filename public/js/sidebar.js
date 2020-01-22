@@ -109,7 +109,7 @@ var UA = {
   function changeIndexSwiperBg() {
     var bgs = $("#index-swiper .swiper-bg");
     var n;
-    n = ["ppxl", "green", "service"];
+    n = ["ppxl", "green", "service", "fenxiao"];
     var i = this.activeIndex,
       a = n.length;
     i > a && (i -= a),
@@ -137,10 +137,10 @@ var UA = {
         clickable: true,
         renderBullet: function(index, className) {
           var i = [
-              ["建站", "green"],
-              ["小程序", "slateblue"],
-              ["分销", "blue"],
-              ["企服", "cyan"],
+              ["网站建设", "green"],
+              ["h5小游戏", "slateblue"],
+              ["定制软件", "blue"],
+              ["微信开发", "cyan"],
               ["推广", "orange"]
             ],
             a = i[index],
@@ -187,6 +187,17 @@ var UA = {
     })
   }
 
+  // 主菜单位置跟随滚动条
+  if (Swiper.device.desktop) {
+
+    $(window).on("scroll",
+      function() {
+        let e = document.documentElement.scrollTop || document.body.scrollTop;
+        e > 76 ? $(".site-header").addClass("shadow") : $(".site-header").removeClass("shadow");
+        e >0 ? $(".site-header").addClass("fixed") : $(".site-header").removeClass("fixed");
+
+      })
+  }
   // new Swiper("#case-swiper", {
   //   // effect: "slide",
   //   loop: true,

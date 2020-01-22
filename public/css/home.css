@@ -85,7 +85,7 @@
 .index-basic-item-box ul{
   list-style-type: none;
     margin: 0 0 16px;
-    line-height: 1;
+    line-height: 1.4em;
     font-size: 16px;
     color: #777;
     white-space: nowrap;
@@ -100,17 +100,6 @@
 .index-services{
   padding: 54px 0 0;
 }
-.index-case{
-    padding: 54px 15px 62px;
-}
-
-.index-case  .box:not(:nth-child(3n)) {
-    border-right: 1px solid #e9ecef;
-}
-.index-case  .box:nth-child(n+4) {
-    border-top: 1px solid #e9ecef;
-}
-
 
 .trail-pc {
     position: relative;
@@ -264,11 +253,38 @@
 }
 .index-case .index-case-item-img {
     display: block;
-    margin: 24px auto 12px;
     max-width: 100%;
-    height: 186px;
+    height: 205px;
     object-fit: contain;
 }
+.index-case{
+    padding: 54px 15px 62px;
+}
+
+.index-case  .box:not(:nth-child(3n)) {
+    border-right: 1px solid #e9ecef;
+}
+.index-case  .box:nth-child(n+4) {
+    border-top: 1px solid #e9ecef;
+}
+
+
+.index-apps-item-box {
+  margin: 24px 0 0 0;
+}
+.index-case-item-img{
+  overflow: hidden;
+}
+.index-case-item-img img {
+	width: 100%;
+	transition: 0.3s all;
+	-webkit-transition: 0.3s all;
+}
+.index-case-item-img:hover img {
+	transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+}
+
 .index-customers{
   padding: 0 0 52px 0;
 }
@@ -313,7 +329,15 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 }
-
+.index-cntr .swiper-bg .swiper-bg-single.ppxl {
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(20%,#fff),to(#49c6a2));
+    background: -webkit-linear-gradient(#fff 20%,#49c6a2);
+    background: -o-linear-gradient(#fff 20%,#49c6a2);
+    background: linear-gradient(#fff 20%,#49c6a2);
+}
+.swiper-bg-single.ppxl.active-bg~.layout-bg {
+    display: none;
+}
 .index-cntr .swiper-bg .swiper-bg-single.green {
 	background: linear-gradient(#22a28d,#43b998);
 	filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#22a28d, endcolorstr=#43b998, gradientType=0);

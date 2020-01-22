@@ -1,9 +1,18 @@
 .tg-page-header{
-  height: 350px;
+    padding: 127px 0 127px 0;
+}
+
+.service-basic-title {
+  padding: 54px 0 48px;
 }
 .services-website .tg-page-header{
   background-color: #409EFF;
 
+}
+
+.service-website .related-case{
+  border-bottom: 1px solid #DCDFE6;
+  border-top: 1px solid #DCDFE6; 
 }
 
 .services-h5 .tg-page-header{

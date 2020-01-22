@@ -23,9 +23,6 @@ const mainmenu = [{
     title: '案例'
   },
   {
-    url: '/faq',
-    title: '帮助'
-  }, {
     url: '/about-us',
     title: '关于'
   }
