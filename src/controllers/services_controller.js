@@ -97,7 +97,7 @@ class ServicesController {
         // Home 案例 动态 帮助 关于 Contact 创建
 
         const posts = [] //WpPost.findAll()
-        const pageHeader = { title: '系统以人为本，适合的就是最好的', desc: ''}
+        const pageHeader = { title: '定制系统以人为本，适合的就是最好的', desc: ''}
 
         //Get paginated list of notes
         try {
@@ -122,7 +122,7 @@ class ServicesController {
         // Home 案例 动态 帮助 关于 Contact 创建
 
         const posts = [] //WpPost.findAll()
-        const pageHeader = { title: '微信-移动互联网的流量第一入口', desc: '无论你想做什么，都不能忽略它！'}
+        const pageHeader = { title: '连接微信-移动互联网的流量第一入口', desc: '无论你想做什么，都不能忽略它！'}
 
         //Get paginated list of notes
         try {

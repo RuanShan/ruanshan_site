@@ -12,9 +12,12 @@
 
 .service-website .related-case{
   border-bottom: 1px solid #DCDFE6;
-  border-top: 1px solid #DCDFE6; 
+  border-top: 1px solid #DCDFE6;
 }
 
+.service-website ul{
+  list-style-type: none;
+}
 .services-h5 .tg-page-header{
   background-color: #F56C6C;
 }
