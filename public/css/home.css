@@ -142,7 +142,7 @@
     font-size: 18px;
 }
 .input-mobile-wrap {
-  display:inline-block;  
+  display:inline-block;
 }
 .input-mobile-wrap .fa{
   position: absolute;
@@ -311,9 +311,9 @@
 	height: 520px;
 	border-radius: 4px;
 }
-.index-cntr .index-slide-cont {
+/* .index-cntr .index-slide-cont {
 	z-index: 3;
-}
+} */
 .index-cntr .index-caput-wrap {
 	position: relative;
 	padding: 0 20px;

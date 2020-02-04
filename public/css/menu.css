@@ -61,7 +61,7 @@
   border-radius: 0 0 4px 4px;
   background: #fff;
   box-shadow: 0 3px 10px 0 rgba(34,24,21,.2);
-	z-index: 1;
+	z-index: 5;
   opacity: 0;height: 0;overflow: hidden;transition: all 0.5s;-webkit-transition: all 0.5s;-moz-transition: all 0.5s;/* Firefox 4 */-o-transition: all 0.5s; /* Opera */
 }
 .menu-primary .submenus a{
