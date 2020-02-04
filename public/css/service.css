@@ -11,7 +11,6 @@
 }
 
 .service-website .related-case{
-  border-bottom: 1px solid #DCDFE6;
   border-top: 1px solid #DCDFE6;
 }
 
@@ -28,4 +27,42 @@
 
 .services-soft .tg-page-header{
   background-color: #E6A23C;
+}
+.service-case .service-case-item{
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1)
+}
+.service-case .service-case-item-img-wrap{
+  position: relative;
+  overflow: hidden;
+}
+
+
+.service-case .service-case-item-desc{
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  transition: all ease .3s;
+  background-color: rgba(0,0,0,.6);
+  font-size: 16px;
+  color:#fff;
+}
+.service-case .service-case-item-img-wrap:hover  .service-case-item-desc {
+    opacity: 1;
+}
+.service-case .service-case-item-img-wrap:hover  .service-case-item-img {
+
+    transform: scale(1.03,1.03);
+}
+.service-case .service-case-title{
+  padding: 15px;
+}
+.service-case .service-case-item-img {
+    cursor: pointer;
+    display: block;
+    max-width: 100%;
+    height: 328px;
+    object-fit: contain;
 }

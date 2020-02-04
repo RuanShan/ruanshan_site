@@ -128,6 +128,7 @@
     font-size: 20px;
     color: #aa7627;
     background: #ffce2e;
+    vertical-align: top;
 }
 .index-trail-content input {
    display:inline-block;
@@ -139,6 +140,15 @@
     box-sizing: border-box;
     vertical-align: top;
     font-size: 18px;
+}
+.input-mobile-wrap {
+  display:inline-block;  
+}
+.input-mobile-wrap .fa{
+  position: absolute;
+  line-height: 50px;
+  width: 50px;
+  font-size: 26px;
 }
 .index-slider{
   position: relative;
@@ -243,7 +253,8 @@
     text-align: center;
 }
 .index-case .index-case-title{
-  margin-bottom: 0.5rem;
+  padding: 0.5em;
+  margin: auto;
   font-family: inherit;
   font-weight: 500;
   line-height: 1.5;
@@ -293,6 +304,25 @@
   text-align: center;
 }
 /* index swiper*/
+.index-cntr .index-slide-inner {
+	position: relative;
+	overflow: hidden;
+	padding: 0;
+	height: 520px;
+	border-radius: 4px;
+}
+.index-cntr .index-slide-cont {
+	z-index: 3;
+}
+.index-cntr .index-caput-wrap {
+	position: relative;
+	padding: 0 20px;
+	font-size: 0;
+}
+.index-cntr .index-slide-inner.swiper-slide-active .index-slide-doc{
+  font-size: 20px;
+
+}
 .index-cntr .swiper-bg {
 	position: absolute;
 	top: 0;

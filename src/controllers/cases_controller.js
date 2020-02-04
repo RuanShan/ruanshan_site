@@ -1,5 +1,4 @@
 require('promise-hash')
-//const joi  = require( 'joi')
 const { termCaseRootId } = require( '../config/game')
 const {
   SharedPost,
@@ -186,7 +185,7 @@ CasesController.prototype.show = async function(ctx) {
     gameRound.album_count = gameAlbums.length
 
   }
-  console.debug( " gameRound = ", gameRound.toJSON())
+  //console.debug( " gameRound = ", gameRound.toJSON())
   let context = {
     currentPage,
     currentTerm,

@@ -1,14 +1,20 @@
 
 require('promise-hash')
-//const joi  = require( 'joi')
-const  { Sequelize } = require('../models')
+const { termCaseRootId } = require( '../config/game')
+const {
+  SharedPost,
+  SharedTerm,
+  Sequelize
+} = require('../models')
+
+const getPagination = require('../helpers/pagination');
 
 const Op = Sequelize.Op;
 const currentPage = {   }
 
 // 分类-帮助的id
-const termHelpRootId = 4
-
+const userId = 2
+const termServiceOptions = { slug: 'services', userId: userId }
 
 class ServicesController {
     async index(ctx) {
@@ -42,22 +48,21 @@ class ServicesController {
     async serviceWebsite(ctx) {
         const query = ctx.query
         // Home 案例 动态 帮助 关于 Contact 创建
+        console.log('serviceWebsite->', this)
 
-        // const mainmenu = [{url: '/', title:'首页'},{url: '/case', title:'案例'},
-        //   {url: '/news', title:'动态'},{url: '/help', title:'帮助'},{url: '/about-us', title:'关于'}]
-        const posts = [] //WpPost.findAll()
         const pageHeader = { title: '企业建站的优质选择', desc: ''}
 
         //Get paginated list of notes
         try {
+          const posts = getPostsByServiceSlug('website')
 
           let context = await Promise.hash({
             pageHeader,
             title: 'pageTitle',
             // Primary page content
-            //sidebar: contentService.getSidebarContent()
+            posts
           })
-
+console.debug("posts", posts);
           await ctx.render( 'services/website', context )
 
         } catch (error) {
@@ -75,12 +80,13 @@ class ServicesController {
 
         //Get paginated list of notes
         try {
+          const posts = getPostsByServiceSlug('h5')
 
           let context = await Promise.hash({
             pageHeader,
             title: 'pageTitle',
             // Primary page content
-            //sidebar: contentService.getSidebarContent()
+            posts
           })
 
           await ctx.render( 'services/h5', context )
@@ -91,7 +97,6 @@ class ServicesController {
         }
     }
 
-
     async serviceSoft(ctx) {
         const query = ctx.query
         // Home 案例 动态 帮助 关于 Contact 创建
@@ -101,12 +106,13 @@ class ServicesController {
 
         //Get paginated list of notes
         try {
+          const posts = getPostsByServiceSlug('soft')
 
           let context = await Promise.hash({
             pageHeader,
             title: 'pageTitle',
             // Primary page content
-            //sidebar: contentService.getSidebarContent()
+            posts
           })
 
           await ctx.render( 'services/soft', context )
@@ -126,12 +132,13 @@ class ServicesController {
 
         //Get paginated list of notes
         try {
+          const posts = getPostsByServiceSlug('wx')
 
           let context = await Promise.hash({
             pageHeader,
             title: 'pageTitle',
             // Primary page content
-            //sidebar: contentService.getSidebarContent()
+            posts
           })
 
           await ctx.render( 'services/wx', context )
@@ -143,8 +150,34 @@ class ServicesController {
     }
 
 
+
 }
 
+async function getTermByServiceSlug( serviceSlug ){
+  // website,h5,soft,wx
+  let terms = await SharedTerm.findAll({
+    where: {
+      parent_id: termCaseRootId
+    }
+  })
 
+  let term = terms.find((term)=>{
+    return term.slug == serviceSlug
+  })
+
+  return term || terms[0]
+}
+
+async function getPostsByServiceSlug( serviceSlug ){
+  let options = { include:[{association:'Covers'}], where: {
+    publish_at: {
+      [Op.ne]: null
+    }
+  }, limit: 4 }
+  let term = getTermByServiceSlug( serviceSlug )
+  let posts = await SharedPost.findAll(options)
+
+  return posts
+}
 
 export default ServicesController
