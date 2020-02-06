@@ -117,28 +117,19 @@ CasesController.prototype.index = async function(ctx) {
 CasesController.prototype.show = async function(ctx) {
 
   const id = ctx.params.id
-  let gameRound = await ZTouPiaoGameRound.findByPk(id)
-  let currentTerm = await SharedTerm.findByPk(termCaseRootId)
+  let sidebar = await getSidebarContext()
 
-  let gameAlbums = await ZTouPiaoAlbum.findAll({
-    where: {
-      game_round_id: gameRound.id,
-    },
-    include: [{
-      attributes: ['okey'],
-      association: 'Photos'
-    }]
-  })
+  let options = { include:[{association:'Covers'},{ association: 'Terms'}], where: {}  }
+  let post = await SharedPost.findByPk(id,options)
 
-  // get previous/next game  发布日期晚的在前面，发布日期早的在后面，
-  let preGameRound = await ZTouPiaoGameRound.findOne({
+  let prePost = await SharedPost.findOne({
      where: {
        publish_at: {
-         [Op.gte]: gameRound.publish_at,
+         [Op.gte]: post.publish_at,
          [Op.ne]: null
        },
        id: {
-         [Op.ne]: gameRound.id
+         [Op.ne]: post.id
        }
      },
      order: [
@@ -146,61 +137,25 @@ CasesController.prototype.show = async function(ctx) {
      ]
    })
 
-  let nextGameRound = await ZTouPiaoGameRound.findOne({ where:{
+  let nextPost = await SharedPost.findOne({ where:{
      publish_at: {
-       [Op.lte]: gameRound.publish_at,
+       [Op.lte]: post.publish_at,
        [Op.ne]: null
      },
      id: {
-       [Op.ne]: gameRound.id
+       [Op.ne]: post.id
      }
-   }, order:[['publish_at', 'DESC']]})
+  }, order:[['publish_at', 'DESC']]})
+ // get previous/next post
 
-  // 推荐最新的20个
-  let newGameRounds = await ZTouPiaoGameRound.findAll({
-    where: {
-      publish_at: {
-        [Op.ne]: null
-      }
-    },
-    limit: 20,
-    order: [
-      ['publish_at', 'DESC']
-    ]
-  })
-
-  //如果游戏在运行状态，设置 visit_count result_count album_count
-  if (gameRound.state == GameRoundStates.started) {
-    gameRound.visit_count = await ZTouPiaoGameDay.sum('visit_count', {
-      where: {
-        game_round_id: gameRound.id
-      }
-    })
-    gameRound.result_count = await ZTouPiaoGameResult.count({
-      where: {
-        game_round_id: gameRound.id
-      }
-    })
-
-    gameRound.album_count = gameAlbums.length
-
-  }
-  //console.debug( " gameRound = ", gameRound.toJSON())
   let context = {
     currentPage,
-    currentTerm,
-    gameRound,
-    preGameRound,
-    nextGameRound,
-    newGameRounds,
-    gameAlbums
+    sidebar,
+    post,
+    prePost,
+    nextPost
   }
-  let view = 'cases/show-desktop'
-
-  if( ctx.userAgent.isMobile){
-    view = 'cases/show-mobile'
-  }
-  await ctx.render(view, context)
+  await ctx.render('cases/show', context)
 }
 
 async function getSidebarContext() {
