@@ -174,7 +174,14 @@ async function getPostsByServiceSlug( serviceSlug ){
       [Op.ne]: null
     }
   }, limit: 4 }
-  let term = getTermByServiceSlug( serviceSlug )
+  let term = await getTermByServiceSlug( serviceSlug )
+
+  options.include.push({
+    association: 'TermRelationships',
+    where: {
+      term_id: term.id
+    }
+  })
   let posts = await SharedPost.findAll(options)
 
   return posts
