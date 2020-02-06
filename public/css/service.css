@@ -48,6 +48,16 @@
   background-color: rgba(0,0,0,.6);
   font-size: 16px;
   color:#fff;
+  display: table;
+}
+
+/*重点：table-cell布局*/
+.service-case .service-case-item-desc .middle-inner{
+    display: table-cell;
+    vertical-align:middle;
+    text-align:center;
+    height: 100%;
+
 }
 .service-case .service-case-item-img-wrap:hover  .service-case-item-desc {
     opacity: 1;

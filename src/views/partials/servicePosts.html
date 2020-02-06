@@ -1,0 +1,46 @@
+<div class="text-center row">
+  {{#each posts as |post idx|}}
+
+  <div class="col-md-6">
+    <div class="service-case-item ">
+
+      <div class="service-case-item-img-wrap">
+        <a href="#">
+          {{#if post.Covers}}
+
+          {{#each post.Covers as |cover|}}
+            <img alt="case" class="service-case-item-img" src="{{cover.previewUrl}}">
+          {{/each}}
+          {{else}}
+            <img alt="case" class="service-case-item-img" src="/images/565x328.png">
+          {{/if}}
+
+          <div class="service-case-item-desc">
+            <div class="middle-inner" >this is description </div>
+          </div>
+        </a>
+      </div>
+      <h4 class="service-case-title"> {{{post.title}}}   </h4>
+
+    </div>
+  </div>
+  {{/each}}
+
+  <div class="col-md-6">
+    <div class="service-case-item ">
+
+      <div class="service-case-item-img-wrap">
+        <a href="#">
+          <img alt="case" class="service-case-item-img" src="/images/index/case.png?v=313">
+          <div class="service-case-item-desc">
+            <div class="middle-inner" >this is description </div>
+          </div>
+        </a>
+      </div>
+      <h4 class="service-case-title">getstore.cn </h4>
+
+    </div>
+  </div>
+
+
+</div>

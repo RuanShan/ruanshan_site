@@ -2,7 +2,7 @@ const mainmenu = [{
     url: '/',
     title: '首页'
   }, {
-    url: '/services',
+    url: 'javascript:void(0)',
     title: '服务',
     submenus:[
       {title: '网站建设', url: '/service-website'},
@@ -12,7 +12,7 @@ const mainmenu = [{
     ]
 
   }, {
-    url: '/products',
+    url: 'javascript:void(0)',
     title: '产品',
     submenus:[
       {title: '店加', url: '/product-getstore'},
