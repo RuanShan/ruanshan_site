@@ -1,5 +1,9 @@
 module.exports = (sequelize, DataTypes) => {
   const model = sequelize.define('SharedTerm', {
+    userId: {
+      type: DataTypes.INTEGER,
+      field: 'user_id'
+    },
     name: {
       type: DataTypes.STRING(255),
       defaultValue: ''

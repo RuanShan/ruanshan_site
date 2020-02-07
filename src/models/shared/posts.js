@@ -3,6 +3,10 @@ const moment = require('moment')
 
 module.exports = (sequelize, DataTypes) => {
   const model = sequelize.define('SharedPost', {
+    userId: {
+      type: DataTypes.INTEGER,
+      field: 'user_id'
+    },
     author: {
       type: DataTypes.STRING(24),
       defaultValue: ''
@@ -39,7 +43,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     deleted_at: {
       type: DataTypes.DATE
-    },publish_at: {
+    },
+    publish_at: {
       type: DataTypes.DATE
     }
   }, {

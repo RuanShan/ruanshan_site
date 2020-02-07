@@ -1,5 +1,5 @@
 require('promise-hash')
-const { termCaseRootId } = require( '../config/game')
+const { termCaseRootId, userId } = require( '../config/game')
 const {
   SharedPost,
   SharedTerm,
@@ -34,8 +34,8 @@ CasesController.prototype.index = async function(ctx) {
   let paging = getPagination(ctx.query.page);
 
   let options = {
-    include: [{association:'Slides'}],
-    where: {code: 'ztoupiao'},
+    include: [{association:'Covers'}],
+    where: { userId },
     limit: paging.paginate,
     offset: paging.offset,
     order: [
@@ -80,7 +80,7 @@ CasesController.prototype.index = async function(ctx) {
   const {
     rows,
     count
-  } = await ZTouPiaoGameRound.findAndCount(options)
+  } = await SharedPost.findAndCountAll(options)
   let pages = Math.ceil(count / paging.paginate)
 
   console.debug(" pages, total", pages, count, filters)

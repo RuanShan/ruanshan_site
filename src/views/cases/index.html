@@ -32,8 +32,8 @@
                 <div class="list-item">
                   <a href="{{caseUrl post}}" class="">
                     <div class="img-box">
-                      {{#if post.Slides}}
-                        <img src="{{gameRoundSlideUrl post}}" alt="第三方微信投票系统">
+                      {{#if post.Covers}}
+                        <img src="{{postCoverUrl post}}" alt="第三方微信投票系统">
                       {{else}}
                         <div class="placeholder"> </div>
                       {{/if}}
@@ -43,8 +43,8 @@
               </div>
               <div class="col-md-6 col-sm-6">
                 <div class="wrap ">
-                  <h3 title="{{post.name}}" class="item-title ellipsis">
-                    {{post.name}}
+                  <h3 title="{{post.title}}" class="item-title ellipsis">
+                    {{post.title}}
                   </h3>
                   <div class="icon-msg clearfix">
                     <div title="分类" class="icon-msg-item">
@@ -64,7 +64,7 @@
                   </div>
 
                   <div class="actions">
-                    <a class="btn" href=""> 查看详细</a>
+                    <a class="btn" href="{{caseUrl post}}"> 查看详细</a>
                   </div>
                 </div>
               </div>
