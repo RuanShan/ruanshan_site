@@ -32,7 +32,7 @@ CasesController.prototype.index = async function(ctx) {
 
   let termId = ctx.params.termId
   let paging = getPagination(ctx.query.page);
-
+  let userId = userId
   let options = {
     include: [{association:'Covers'}],
     where: { userId },
@@ -115,6 +115,7 @@ CasesController.prototype.index = async function(ctx) {
  *
  */
 CasesController.prototype.show = async function(ctx) {
+  let userId = userId
 
   const id = ctx.params.id
   let sidebar = await getSidebarContext()
@@ -124,6 +125,7 @@ CasesController.prototype.show = async function(ctx) {
 
   let prePost = await SharedPost.findOne({
      where: {
+       userId,
        publish_at: {
          [Op.gte]: post.publish_at,
          [Op.ne]: null
@@ -138,6 +140,7 @@ CasesController.prototype.show = async function(ctx) {
    })
 
   let nextPost = await SharedPost.findOne({ where:{
+     userId,
      publish_at: {
        [Op.lte]: post.publish_at,
        [Op.ne]: null
