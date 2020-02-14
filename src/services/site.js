@@ -15,8 +15,8 @@ const mainmenu = [{
     url: 'javascript:void(0)',
     title: '产品',
     submenus:[
-      {title: '店加', url: '/product-getstore'},
-      {title: '星投票', url: '/product-ztoupiao'}
+      {title: '店加', url: '//www.getstore.cn'},
+      {title: '星投票', url: '//hd.ruanshan.com'}
     ]
   }, {
     url: '/case',
