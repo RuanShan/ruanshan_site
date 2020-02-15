@@ -1,5 +1,4 @@
 
-require('promise-hash')
 const { termCaseRootId } = require( '../config/game')
 const {
   SharedPost,
@@ -28,14 +27,14 @@ class ServicesController {
 
         //Get paginated list of notes
         try {
-
-          let context = await Promise.hash({
+          l
+          let context =  {
             currentPage,
             title: 'pageTitle',
             // Primary page content
             posts: posts, //wp.posts().page( pages.current ),
             //sidebar: contentService.getSidebarContent()
-          })
+          }
 
           await ctx.render( 'index', context )
 
@@ -50,19 +49,19 @@ class ServicesController {
         // Home 案例 动态 帮助 关于 Contact 创建
         console.log('serviceWebsite->', this)
 
-        const pageHeader = { title: '企业建站的优质选择', desc: ''}
+        const pageHeader = { title: '企业建站的优质选择', desc: '' }
 
         //Get paginated list of notes
         try {
-          const posts = getPostsByServiceSlug('website')
+          const { posts, term } = await getPostsByServiceSlug('website')
 
-          let context = await Promise.hash({
+          let context =  {
             pageHeader,
             title: 'pageTitle',
-            // Primary page content
+            currentTerm: term,
             posts
-          })
-console.debug("posts", posts);
+          }
+
           await ctx.render( 'services/website', context )
 
         } catch (error) {
@@ -80,14 +79,15 @@ console.debug("posts", posts);
 
         //Get paginated list of notes
         try {
-          const posts = getPostsByServiceSlug('h5')
+          const { posts, term } =  await getPostsByServiceSlug('h5')
 
-          let context = await Promise.hash({
+          let context =  {
             pageHeader,
+            currentTerm: term,
             title: 'pageTitle',
             // Primary page content
             posts
-          })
+          }
 
           await ctx.render( 'services/h5', context )
 
@@ -106,14 +106,15 @@ console.debug("posts", posts);
 
         //Get paginated list of notes
         try {
-          const posts = getPostsByServiceSlug('soft')
+          const { posts, term } =  await getPostsByServiceSlug('soft')
 
-          let context = await Promise.hash({
+          let context =  {
             pageHeader,
+            currentTerm: term,
             title: 'pageTitle',
             // Primary page content
             posts
-          })
+          }
 
           await ctx.render( 'services/soft', context )
 
@@ -132,14 +133,15 @@ console.debug("posts", posts);
 
         //Get paginated list of notes
         try {
-          const posts = getPostsByServiceSlug('wx')
+          const { posts, term } = await getPostsByServiceSlug('wx')
 
-          let context = await Promise.hash({
+          let context = {
             pageHeader,
+            currentTerm: term,
             title: 'pageTitle',
             // Primary page content
             posts
-          })
+          }
 
           await ctx.render( 'services/wx', context )
 
@@ -175,7 +177,6 @@ async function getPostsByServiceSlug( serviceSlug ){
     }
   }, limit: 4 }
   let term = await getTermByServiceSlug( serviceSlug )
-
   options.include.push({
     association: 'TermRelationships',
     where: {
@@ -184,7 +185,7 @@ async function getPostsByServiceSlug( serviceSlug ){
   })
   let posts = await SharedPost.findAll(options)
 
-  return posts
+  return { term,  posts}
 }
 
 export default ServicesController

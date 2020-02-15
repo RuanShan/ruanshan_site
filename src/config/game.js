@@ -5,5 +5,6 @@ module.exports = {
   demoUrl:process.env.GAME_DEMO_URL||'http://127.0.0.1:8081',
   termCaseRootId: process.env.TERM_CASE_ROOT_ID|| 0,
   termPostRootId: process.env.TERM_POST_ROOT_ID|| 0,
+  homeTermCaseId: process.env.HOME_TERM_CASE_ID|| 0,
   userId: process.env.USER_ID|| 0
 }

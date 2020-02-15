@@ -119,14 +119,26 @@
         <h2 class="index-basic-title ">案例展示</h2>
         <div id="case-swiper" class="container">
           <div class="row">
+            {{#each cases as |post idx|}}
+
             <div class="col-md-4 box">
-              <div class="index-apps-item-box">
-                <div class="index-case-item-img" >
-                  <img alt="case" class="index-case-item-img" src="/images/index/case.png?v=313">
+              <a href="{{caseUrl post}}" alt="{{{post.title}}} ">
+                <div class="index-apps-item-box">
+                  <div class="index-case-item-img" >
+                    {{#if post.Covers}}
+                      {{#each post.Covers as |cover|}}
+                        <img alt="case" class="service-case-item-img" src="{{cover.previewUrl}}">
+                      {{/each}}
+                    {{else}}
+                      <img alt="case" class="service-case-item-img" src="/images/565x328.png">
+                    {{/if}}
+                  </div>
+                  <h5 class="index-case-title">{{post.title}} </h5>
                 </div>
-                <h5 class="index-case-title">getstore.cn </h5>
-              </div>
+              </a>
             </div>
+            {{/each}}
+
             <div class="col-md-4 box">
               <div class="index-apps-item-box">
                 <div class="index-case-item-img" >

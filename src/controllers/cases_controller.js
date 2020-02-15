@@ -32,7 +32,6 @@ CasesController.prototype.index = async function(ctx) {
 
   let termId = ctx.params.termId
   let paging = getPagination(ctx.query.page);
-  let userId = userId
   let options = {
     include: [{association:'Covers'}],
     where: { userId },
@@ -56,7 +55,7 @@ CasesController.prototype.index = async function(ctx) {
   }
 
   // 案例分类 根分类id = 4
-  let sidebar = await getSidebarContext()
+
   // 过滤条件
   let terms = await SharedTerm.findAll({
     where: {
@@ -89,16 +88,17 @@ CasesController.prototype.index = async function(ctx) {
     page: paging.page,
     pageCount: pages
   }
+  const pageHeader = { title: '专注网络技术，提高企业效率' }
+
   //Get paginated list of notes
   try {
     let context = await Promise.hash({
-      currentPage, // 当前页面设置hasSidebar
+      pageHeader,
       currentTerm,
       filters,
       // Primary page content
       posts,
       pagination,
-      sidebar
     })
 
     await ctx.render('cases/index', context)
