@@ -28,10 +28,7 @@ class PagesController {
     //   {url: '/news', title:'动态'},{url: '/help', title:'帮助'},{url: '/about-us', title:'关于'}]
     const cases = getCases()
     const posts = getPosts()
-    const page = {
-      menu_order: 1
-    }
-
+     
     //Get paginated list of notes
     try {
 
