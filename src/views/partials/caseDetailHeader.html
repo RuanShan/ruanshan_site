@@ -1,23 +1,36 @@
 <header class="tg-page-header tg-page-header--left">
-  <div class="tg-container">
-    <h1 class="tg-page-header__title">{{post.title}}</h1>
-    <nav role="navigation" aria-label="Breadcrumbs" class="breadcrumb-trail breadcrumbs" itemprop="breadcrumb">
-      <ul class="trail-items" itemscope="" itemtype="http://schema.org/BreadcrumbList">
-        <meta name="numberOfItems" content="3">
-        <meta name="itemListOrder" content="Ascending">
-        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" class="trail-item trail-begin">
-          <a href="/" rel="home" itemprop="item"><span itemprop="name">首页</span></a>
-          <meta itemprop="position" content="1">
-        </li>
-        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" class="trail-item trail-begin">
-          <a href="/case" rel="home" itemprop="item"><span itemprop="name">案例</span></a>
-          <meta itemprop="position" content="2">
-        </li>
-        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" class="trail-item trail-end">
-          <span itemprop="item"><span itemprop="name">{{post.title}}</span></span>
-          <meta itemprop="position" content="3">
-        </li>
-      </ul>
-    </nav>
+  <div class="tg-container  ">
+    <div class="clearfix">
+      <h1 class="tg-page-header__title pull-left">{{post.title}}</h1>
+      <nav role="navigation" aria-label="Breadcrumbs" class="breadcrumb-trail breadcrumbs pull-right" itemprop="breadcrumb">
+        <ul class="trail-items" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+          <meta name="numberOfItems" content="2">
+          <meta name="itemListOrder" content="Ascending">
+          <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" class="trail-item trail-begin">
+            <a href="/" rel="home" itemprop="item"><span itemprop="name">首页</span></a>
+            <meta itemprop="position" content="1">
+          </li>
+          <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" class="trail-item trail-end">
+            <a href="/case" rel="home" itemprop="item"><span itemprop="name">案例</span></a>
+            <meta itemprop="position" content="2">
+          </li>
+
+        </ul>
+      </nav>
+    </div>
+    <div class="entry-meta text-muted">
+      <div clss="item">
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{post.author}}
+      </div>
+      <div clss="item">
+      <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{formatDate post.publish_at}}
+      </div>
+      <div clss="item">
+      <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+        {{#each post.Terms as |term|}}
+            <span class="term"> {{term.name}} </span>
+        {{/each}}
+      </div>
+    </div>
   </div>
 </header>

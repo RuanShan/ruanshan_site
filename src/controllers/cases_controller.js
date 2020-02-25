@@ -37,6 +37,7 @@ CasesController.prototype.index = async function(ctx) {
     where: { userId },
     limit: paging.paginate,
     offset: paging.offset,
+    distinct: true,
     order: [
       ['publish_at', 'DESC']
     ]
@@ -44,13 +45,20 @@ CasesController.prototype.index = async function(ctx) {
   let currentTerm = null
   if (termId) {
     options.include.push({
-      association: 'TermRelationships',
+      association: 'Terms',
       where: {
-        term_id: termId
+        id: termId
       }
     })
     currentTerm = SharedTerm.findByPk(termId)
   } else {
+    // 文章可能分配给多个term，这里需指定根分类， 如`首页案例分类`
+    options.include.push({
+      association: 'Terms' ,
+      where: {
+        parent_id: termCaseRootId
+      }
+    })
     currentTerm = SharedTerm.findByPk(termCaseRootId)
   }
 
@@ -82,7 +90,7 @@ CasesController.prototype.index = async function(ctx) {
   } = await SharedPost.findAndCountAll(options)
   let pages = Math.ceil(count / paging.paginate)
 
-  console.debug(" pages, total", pages, count, filters)
+  console.debug(" pages, total", paging, pages, count, filters)
   const posts = rows
   const pagination = {
     page: paging.page,

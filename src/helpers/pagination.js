@@ -14,12 +14,12 @@ function getPagination( current ) {
   // Request params come through as strings: convert to integers
   // If "current" is undefined, assume we're on the first page
   current = parseInt( current || 1, 10 );
-  let paginate = 25
+  let paginate = 20
   let offset = (current -1) * paginate
   return {
     page: current, // it is for model.paginate
     offset,
-    paginate: 25,
+    paginate: 20,
     prev: current - 1,
     current: current,
     next: current + 1

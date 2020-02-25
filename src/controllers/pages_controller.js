@@ -28,7 +28,7 @@ class PagesController {
     //   {url: '/news', title:'动态'},{url: '/help', title:'帮助'},{url: '/about-us', title:'关于'}]
     const cases = getCases()
     const posts = getPosts()
-     
+
     //Get paginated list of notes
     try {
 
@@ -98,8 +98,6 @@ async function getCases() {
       term_id: homeTermCaseId
     }
   })
-
-
 
   let posts = await SharedPost.findAll(options)
 

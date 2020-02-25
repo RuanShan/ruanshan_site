@@ -14,20 +14,7 @@
                       <img src="{{cover.originalUrl}}" alt="cover"/>
                   {{/each}}
               </div>
-              <div class="entry-meta text-muted">
-                <div clss="item">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{post.author}}
-                </div>
-                <div clss="item">
-                <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{formatDatetime post.publish_at}}
-                </div>
-                <div clss="item">
-                <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
-                  {{#each post.Terms as |term|}}
-                      <span class="term"> {{term.name}} </span>
-                  {{/each}}
-                </div>
-              </div>
+
               <div class="entry-content">
                   {{{post.content}}}
               </div>

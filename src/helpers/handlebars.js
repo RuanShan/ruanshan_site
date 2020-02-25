@@ -91,7 +91,8 @@ function pageTitle( options ){
   if( currentTerm && currentTerm.name ){
     title +=  currentTerm.name + ' - '
   }
-  return `${title}${options.data.site.name}-大连软山网络有限公司`
+
+  return title.length> 0 ? `${title} - ${options.data.site.name}` : options.data.site.name
 }
 function serverTime() {    return new Date().getTime(); }
 
@@ -99,6 +100,9 @@ function formatDatetime( date ){
   return date.toLocaleString()
 }
 
+function formatDate( date ){
+  return date.toLocaleDateString()
+}
 // 如果数字较大，大于1万，如： 100001 格式化为  10万+
 // 如果数字小于1万，如： 9001 保持原  9001
 function formatNumber( number ){
@@ -136,7 +140,7 @@ function bodyCssClass( options ){
 
 
 module.exports = {
-  toJSON, serverTime,formatDatetime, formatNumber,
+  toJSON, serverTime,formatDatetime, formatNumber, formatDate,
   pageTitle,
   isCurrentUrl, ifDevice,
   gameDemoUrl, gameBackendUrl,
