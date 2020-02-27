@@ -840,6 +840,8 @@
 	animation-name: zoomIn;
 }
 
+
+
 @media screen and (max-width:768px) {
 	.mobile body,html.mobile {
 		overflow-x: hidden;
