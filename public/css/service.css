@@ -55,9 +55,9 @@
 .service-case .service-case-item-desc .middle-inner{
     display: table-cell;
     vertical-align:middle;
-    text-align:center;
+    text-align:left;
     height: 100%;
-
+    padding: 0 3em;
 }
 .service-case .service-case-item-img-wrap:hover  .service-case-item-desc {
     opacity: 1;
