@@ -434,3 +434,12 @@
 		opacity: 0
 	}
 }
+@media screen and (max-width:768px) {
+
+	.gotop-hmsr{
+		display: none;
+	}
+	.gotop-hmsr .online-service{
+		display: none;
+	}
+}

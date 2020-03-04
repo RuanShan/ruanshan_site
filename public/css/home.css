@@ -847,6 +847,9 @@
 		overflow-x: hidden;
 		min-width: 100%;
 	}
+  .index-slider {
+    padding: 0 15px;
+  }
   .mobile .index-cntr .swiper-container {
       height: 420px;
   }

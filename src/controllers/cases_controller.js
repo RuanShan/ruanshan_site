@@ -128,7 +128,7 @@ CasesController.prototype.show = async function(ctx) {
   const id = ctx.params.id
   let sidebar = await getSidebarContext()
 
-  let options = { include:[{association:'Covers'},{ association: 'Terms'}], where: {}  }
+  let options = { include:[{association:'Covers'},{ association: 'Terms', where:{ rootId: termCaseRootId}, required: false}], where: {}  }
   let post = await SharedPost.findByPk(id,options)
 
   let prePost = await SharedPost.findOne({
