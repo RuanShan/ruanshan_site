@@ -1,59 +1,80 @@
-{{> header }}
-<main id="main" class="site-main">
+<div class="page-header com-info">
 
-  {{> pageHeader }}
+  <div class="header">
+    <div class="logo">
+      <div></div><a class="full" href="index.html"></a>
+    </div>
+    <ul class="menu">
+      <!--<li><span class="service"></span><span>提供服务</span><a class="full" href="index.html"></a></li>-->
+      <li><span class="case"></span><span>成功案例</span><a class="full" href="cases.html"></a></li>
+      <li><span class="h5share"></span><span>H5案例分享</span><a class="full" href="http://h5cases.ruanshan.com/" target="_blank"></a></li>
+      <li class="selected this"><span class="h5ketang"></span><span>H5课堂</span><a class="full" href="posts.html" target="_blank"></a></li>
+      <li><span class="about"></span><span>关于软山</span><a class="full" href="about-us.html"></a></li>
+    </ul>
+  </div>
+</div>
+<main id="main" class="site-main cases">
 
-  <div id="content" class="posts site-content">
+  <div id="content" class="site-content page-body com-info">
 
-    <div class="tg-container tg-container--flex tg-container--flex-space-between">
-      <div id="primary" class="">
-        <div class="row">
-          {{#each posts as |post idx|}}
-            <div class="post col-sm-12 hentry">
-              <div class="cover">
-                <a class="post-thumbnail" href="{{postUrl post}}">
-                  {{#each post.Covers as |cover|}}
-                      <img src="{{cover.previewUrl}}" alt="cover"/>
-                  {{/each}}
-                </a>
-              </div>
-              <h2 class="entry-title">
-                <a href="{{postUrl post}}" >  {{{post.title}}}  </a>
-              </h2>
-              <div class="entry-meta text-muted">
-                <div clss="item">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{post.author}}
+    <div>
+      {{> postFilters }}
+      <div class="middle">
+        <div class="wrap">
+          <div class=" case-list">
+            <div class="row ">
+              {{#each posts as |post idx|}}
+                <div class="  activity-item">
+                  <div class="col-md-6 col-sm-6">
+                    <div class="list-item">
+                      <a href="{{postUrl post}}" class="">
+                        <h3 title="{{post.title}}" class="item-title ellipsis">
+                          {{post.title}}
+                        </h3>
+                        <div class="img-box">
+                          {{#if post.Covers}}
+                            <img src="{{postCoverUrl post}}" alt="第三方微信投票系统">
+                          {{else}}
+                            <div class="placeholder"> </div>
+                          {{/if}}
+                        </div>
+                        <div class="wrap ">
+
+                          <div class="icon-msg clearfix">
+                            <div title="分类" class="icon-msg-item">
+                              <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
+                              {{#each post.Terms as |term|}}
+                                <span class="val"> {{term.name}} </span>
+                              {{/each}}
+                            </div>
+                            <div title="客户" class="icon-msg-item pull-right"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span class="val">
+                                {{post.author}}
+                              </span>
+                            </div>
+                            <div title="访问量" class="icon-msg-item hide">
+                              <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> <span class="val"> {{post.finalResultCount}} </span>
+                            </div>
+                          </div>
+
+                        </div>
+
+                      </a>
+                    </div>
+
+                  </div>
+
+                  {{!-- .post --}}
                 </div>
-                <div clss="item">
-                <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{formatDatetime post.created_at}}
-                </div>
-                <div clss="item">
-                <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
-                  {{#each post.Terms as |term|}}
-                      <span class="term"> {{term.name}} </span>
-                  {{/each}}
-                </div>
-              </div>
-              <div class="entry-content">
-                {{#if post.excerpt}}
-                  <p>{{{post.excerpt}}}</p>
-                {{/if}}
-                <div class="tg-read-more-wrapper clearfix tg-text-align--left"> <a href="{{postUrl post}}" class="tg-read-more"> 详细</a></div>
-              </div>
-            </div>{{!-- .post --}}
-
-          {{/each}}
-
-        </div><!-- .row -->
-        <div class="row">
-          <div class="col-md-12">
-            {{> pagination }}
+              {{/each}}
+            </div><!-- .row -->
+          </div>
+          <div class="pagination-wrap">
+            {{> pagination  }}
           </div>
         </div>
       </div><!-- #primary -->
 
-      {{> sidebar2 sidebar }}
     </div>
   </div><!-- #content -->
 </main>
-{{> footer }}
+{{> footerForOther }}

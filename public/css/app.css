@@ -52,15 +52,9 @@ a:focus, a:hover{
   list-style: none;
 }
 
-.site-content{
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.site-header.shadow  {
-	box-shadow: rgba(0,0,0,.2) 0 1px 8px 0;
-}
-.site-header.fixed  {
-  position: fixed;
-  top: 0;
+/* bootstrap override */
+.page-header{
+  margin: 0;
+  padding: 0;
+  border: none;
 }

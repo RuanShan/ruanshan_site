@@ -1,165 +1,233 @@
-{{> header }}
+<!--引用百度地图API-->
+<style type="text/css">
+    html,body{margin:0;padding:0;}
+    .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+    .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+</style>
+<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
 
-<main id="main" class="site-main about-us">
-  {{> pageHeader }}
+<div class="page-header com-info">
 
-  <div id="content" class="site-content">
-
-    <div class="tg-container tg-container--flex tg-container--flex-space-between">
-      <div   class="content-area pagebuilder-content">
-        <div class="elementor-widget-wrap ">
-          <div class="elementor-widget-container elementor-0625c9d">
-            <h2 class="elementor-heading-title elementor-size-default ">EXPERIENCED</h2>
+          <div class="header">
+               <div class="logo"><div></div><a class="full" href="index.html"></a></div>
+               <ul class="menu">
+                   <!--<li><span class="service"></span><span>提供服务</span><a class="full" href="index.html"></a></li>-->
+                   <li><span class="case"></span><span>成功案例</span><a class="full" href="cases.html"></a></li>
+                   <li><span class="h5share"></span><span>H5案例分享</span><a class="full" href="http://h5cases.ruanshan.com/" target="_blank"></a></li>
+                   <li><span class="h5ketang"></span><span>H5课堂</span><a class="full" href="posts.html"  ></a></li>
+                   <li class="selected this"><span class="about"></span><span>关于软山</span><a class="full" href="about-us.html"></a></li>
+               </ul>
           </div>
-          <div class="elementor-widget-container">
-            <h2 class="elementor-heading-title elementor-size-default">大连软山</h2>
-          </div>
-          <div class="elementor-widget-container  elementor-widget-divider">
-            <div class="elementor-divider"> <span class="elementor-divider-separator"></span></div>
-          </div>
-          <section class="elementor-element elementor-element-8a6c2d4 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-inner-section" data-id="8a6c2d4" data-element_type="section">
-            <div class="elementor-widget-container">
-              <div class="elementor-text-editor elementor-clearfix">
-                <p class="description">
-                  大连软山网络科技有限公司是一家以软件开发以及平台运营为主的互联网公司，我们致力于利用先进的互联网技术， 加强人与人之间信息的交流和共享，使之更好的服务于我们的生活和事业。
-                </p>
+</div>
 
+<div class="page-body com-info">
+
+     <section class="part part1 middle">
+              <h1>公司介绍</h1>
+              <div class="info-content">
+                   <p>大连软山网络有限公司，简称软山，成立于2014年5月，是一家平凡的互联网技术公司。主要致力于为客户提供互联网技术产品定制和自主产品研发。</p>
+                   <p>定制产品类型包含：移动端H5、手机原生App、基于微信的二次开发、网站等，合作客户包括腾讯网、淘宝网、新浪、正和岛等；自主产品包括：店加、星投票（微信投票）等。</p>
               </div>
-            </div>
-          </section>
-          <section class="section">
-              <div class=" row">
-                <div class="col-md-3"  >
-                  <div class="elementor-column-wrap  elementor-element-populated">
-                    <div class="elementor-widget-wrap">
-                      <div class="elementor-element elementor-element-d48371f elementor-widget elementor-widget-image" data-id="d48371f" data-element_type="widget" data-widget_type="image.default">
-                        <div class="elementor-widget-container">
-                          <div class="elementor-image"> <img width="315" height="414" src="/images/site/2019/05/samanta1.jpg" class="attachment-full size-full lazyloaded" alt=""
-                              sizes="(max-width: 315px) 100vw, 315px"
-                              data-was-processed="true"><noscript><img width="315" height="414" src="/images/site/2019/05/samanta-min.jpg" class="attachment-full size-full" alt=""
-                                sizes="(max-width: 315px) 100vw, 315px" /></noscript></div>
-                        </div>
-                      </div>
-                      <div class="elementor-element elementor-element-b20266d elementor-widget elementor-widget-heading" data-id="b20266d" data-element_type="widget" data-widget_type="heading.default">
-                        <div class="elementor-widget-container">
-                          <h3 class="elementor-heading-title elementor-size-default">David</h3>
-                        </div>
-                      </div>
-                      <div class="elementor-element elementor-element-d7ced6a elementor-widget elementor-widget-heading" data-id="d7ced6a" data-element_type="widget" data-widget_type="heading.default">
-                        <div class="elementor-widget-container">
-                          <p class="elementor-heading-title elementor-size-default">App开发工程师</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3"  >
-                  <div class="elementor-column-wrap  elementor-element-populated">
-                    <div class="elementor-widget-wrap">
-                      <div class="elementor-element elementor-element-289ae57 elementor-widget elementor-widget-image" data-id="289ae57" data-element_type="widget" data-widget_type="image.default">
-                        <div class="elementor-widget-container">
-                          <div class="elementor-image">
-                            <img width="315" height="414" src="/images/site/2019/05/samanta2.jpg" class="attachment-full size-full lazyloaded" alt="">
-                             </div>
-                        </div>
-                      </div>
-                      <div class="elementor-element elementor-element-9e9fbcc elementor-widget elementor-widget-heading" data-id="9e9fbcc" data-element_type="widget" data-widget_type="heading.default">
-                        <div class="elementor-widget-container">
-                          <h3 class="elementor-heading-title elementor-size-default">修宇</h3>
-                        </div>
-                      </div>
-                      <div class="elementor-element elementor-element-7a733f2 elementor-widget elementor-widget-heading" data-id="7a733f2" data-element_type="widget" data-widget_type="heading.default">
-                        <div class="elementor-widget-container">
-                          <p class="elementor-heading-title elementor-size-default">WEB开发工程师</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3"  >
-                  <div class="elementor-column-wrap  elementor-element-populated">
-                    <div class="elementor-widget-wrap">
-                      <div class="elementor-element elementor-element-732037d elementor-widget elementor-widget-image" data-id="732037d" data-element_type="widget" data-widget_type="image.default">
-                        <div class="elementor-widget-container">
-                          <div class="elementor-image"> <img width="315" height="414" src="https://zakrademos.com/app/wp-content/uploads/sites/21/2019/05/eric-min.jpg" class="attachment-full size-full lazyloaded" alt=""
-                              data-lazy-srcset="https://zakrademos.com/app/wp-content/uploads/sites/21/2019/05/eric-min.jpg 315w, https://zakrademos.com/app/wp-content/uploads/sites/21/2019/05/eric-min-228x300.jpg 228w"
-                              data-lazy-sizes="(max-width: 315px) 100vw, 315px" data-lazy-src="https://zakrademos.com/app/wp-content/uploads/sites/21/2019/05/eric-min.jpg" sizes="(max-width: 315px) 100vw, 315px"
-                              srcset="https://zakrademos.com/app/wp-content/uploads/sites/21/2019/05/eric-min.jpg 315w, https://zakrademos.com/app/wp-content/uploads/sites/21/2019/05/eric-min-228x300.jpg 228w" data-was-processed="true"><noscript><img
-                                width="315" height="414" src="https://zakrademos.com/app/wp-content/uploads/sites/21/2019/05/eric-min.jpg" class="attachment-full size-full" alt=""
-                                srcset="https://zakrademos.com/app/wp-content/uploads/sites/21/2019/05/eric-min.jpg 315w, https://zakrademos.com/app/wp-content/uploads/sites/21/2019/05/eric-min-228x300.jpg 228w"
-                                sizes="(max-width: 315px) 100vw, 315px" /></noscript></div>
-                        </div>
-                      </div>
-                      <div class="elementor-element elementor-element-4f6c43c elementor-widget elementor-widget-heading" data-id="4f6c43c" data-element_type="widget" data-widget_type="heading.default">
-                        <div class="elementor-widget-container">
-                          <h3 class="elementor-heading-title elementor-size-default">艾迪</h3>
-                        </div>
-                      </div>
-                      <div class="elementor-element elementor-element-0d26faf elementor-widget elementor-widget-heading" data-id="0d26faf" data-element_type="widget" data-widget_type="heading.default">
-                        <div class="elementor-widget-container">
-                          <p class="elementor-heading-title elementor-size-default">UX</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3"  >
-                  <div class="elementor-column-wrap  elementor-element-populated">
-                    <div class="elementor-widget-wrap">
-                      <div class="elementor-element elementor-element-611dfd5 elementor-widget elementor-widget-image" data-id="611dfd5" data-element_type="widget" data-widget_type="image.default">
-                        <div class="elementor-widget-container">
-                          <div class="elementor-image"> <img width="315" height="414" src="https://zakrademos.com/app/wp-content/uploads/sites/21/2019/05/drew-min.jpg" class="attachment-full size-full lazyloaded" alt=""
-                              data-lazy-srcset="https://zakrademos.com/app/wp-content/uploads/sites/21/2019/05/drew-min.jpg 315w, https://zakrademos.com/app/wp-content/uploads/sites/21/2019/05/drew-min-228x300.jpg 228w"
-                              data-lazy-sizes="(max-width: 315px) 100vw, 315px" data-lazy-src="https://zakrademos.com/app/wp-content/uploads/sites/21/2019/05/drew-min.jpg" sizes="(max-width: 315px) 100vw, 315px"
-                              srcset="https://zakrademos.com/app/wp-content/uploads/sites/21/2019/05/drew-min.jpg 315w, https://zakrademos.com/app/wp-content/uploads/sites/21/2019/05/drew-min-228x300.jpg 228w" data-was-processed="true"><noscript><img
-                                width="315" height="414" src="https://zakrademos.com/app/wp-content/uploads/sites/21/2019/05/drew-min.jpg" class="attachment-full size-full" alt=""
-                                srcset="https://zakrademos.com/app/wp-content/uploads/sites/21/2019/05/drew-min.jpg 315w, https://zakrademos.com/app/wp-content/uploads/sites/21/2019/05/drew-min-228x300.jpg 228w"
-                                sizes="(max-width: 315px) 100vw, 315px" /></noscript></div>
-                        </div>
-                      </div>
-                      <div class="elementor-element elementor-element-ba1a4dd elementor-widget elementor-widget-heading" data-id="ba1a4dd" data-element_type="widget" data-widget_type="heading.default">
-                        <div class="elementor-widget-container">
-                          <h3 class="elementor-heading-title elementor-size-default">老姜</h3>
-                        </div>
-                      </div>
-                      <div class="elementor-element elementor-element-351694c elementor-widget elementor-widget-heading" data-id="351694c" data-element_type="widget" data-widget_type="heading.default">
-                        <div class="elementor-widget-container">
-                          <p class="elementor-heading-title elementor-size-default">项目经理</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+
+     </section>
+     <section class="part part2">
+           <div class="middle">
+              <h1>公司理念</h1>
+              <div class="info-content">
+                   <p><span class="color2">简单</span> - 复杂</p>
+                   <p><span class="color2">简洁</span> - 繁杂</p>
+                   <p><span class="color2">简约</span> - 极致优雅美</p>
+                   <p style="margin-top:35px;">慢即快-心怀敬畏，脚踏实地，持续成长。</p>
               </div>
-          </section>
+           </div>
+     </section>
+     <section class="part part1 middle">
+              <h1>公司文化（价值观）</h1>
+              <div class="info-content">
+                   <p>1.做自己，保持简单，保持快乐；</p>
+                   <p>2.带着爱去工作，勇敢探索，做自己喜欢的事情；</p>
+                   <p>3.做在前说在后，先完成后完美，快速迭代；</p>
+                   <p>4.脚踏实地，日积月累，保持向上；</p>
+                   <p>5.做技术，保持平凡；</p>
+                   <p>6.相信现在，相信未来；</p>
+              </div>
+     </section>
+     <section class="part part3"></section>
+     <section class="part part4 middle">
+              <h1>地理位置</h1>
+              <div style="border:#ccc solid 1px; margin-left:40px; margin-top:40px;" id="dituContent"></div>
+              <div class="content">
+                   <p class="strong">办公地址:</p>
+                   <p>大连市沙河口区尚品天城2号楼 2506室</p>
+                   <p class="br"></p>
+                   <p class="strong">联系电话:</p>
+                   <p><span>13322280797</p>
+                   <p class="br"></p>
+                   <p class="strong">联系邮箱:</p>
+                   <p>contact@ruanshan.com</p>
+                   <p class="br"></p>
+                   <p class="strong">微信:</p>
+                   <p><span>13322280797</p>
+              </div>
+     </section>
+</div><!-- end of page-body info -->
 
-          <section class="elementor-element achievement flex" >
-            <div class="elementor-widget-container flex-item">
-              <div class="elementor-counter-number-wrapper"> <span class="elementor-counter-number-prefix"></span> <span class="elementor-counter-number" data-duration="2000" data-to-value="500" data-delimiter=",">500</span> <span
-                  class="elementor-counter-number-suffix">家</span></div>
-              <div class="elementor-counter-title">企业信赖之选</div>
-            </div>
-            <div class="elementor-widget-container flex-item">
-              <div class="elementor-counter-number-wrapper"> <span class="elementor-counter-number-prefix"></span> <span class="elementor-counter-number" data-duration="2000" data-to-value="1200">1200</span> <span
-                  class="elementor-counter-number-suffix">天</span></div>
-              <div class="elementor-counter-title">安全运行</div>
-            </div>
-            <div class="elementor-widget-container flex-item">
-              <div class="elementor-counter-number-wrapper"> <span class="elementor-counter-number-prefix"></span> <span class="elementor-counter-number" data-duration="2000" data-to-value="5000">5000</span> <span
-                  class="elementor-counter-number-suffix">+</span></div>
-              <div class="elementor-counter-title">累计活动</div>
-            </div>
-            <div class="elementor-widget-container flex-item">
-              <div class="elementor-counter-number-wrapper"> <span class="elementor-counter-number-prefix"></span> <span class="elementor-counter-number" data-duration="2000" data-to-value="112000">112000</span> <span
-                  class="elementor-counter-number-suffix">+</span></div>
-              <div class="elementor-counter-title">累计为客户带来流量</div>
-            </div>
 
-          </section>
-        </div>
+{{> footerForOther }}
 
-      </div>
-    </div>
-  </div>
-</main>
-{{> footer }}
+
+<script type="text/javascript">
+  init();
+  function init(){
+		width=$(window).width();
+		var leftpx=Math.floor((width-1070)/2);
+		if(leftpx<0){
+			leftpx=76;
+			$('.logo').css({'position':'absolute'});
+			$('.part.part3').addClass('movebg');
+		}else{
+			$('.logo').css({'position':'fixed'});
+		}
+		$('.logo').css({'left':leftpx});
+		color.changecolor(color.selectcolor());
+   }
+
+
+
+
+    $(document).on('mouseover', '.menu li', function(e) {
+			$('.menu li').removeClass('selected');
+			$(this).addClass('selected');
+	});
+
+    $(document).on('mouseleave', '.menu li', function(e) {
+			$('.menu li').removeClass('selected');
+			$('.this').addClass('selected');
+	});
+
+
+
+	function isIpad(){
+    var userAgentInfo = navigator.userAgent;
+    var Agents = ["iPad"];
+    var flag = false;
+    for (var v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+            flag = true;
+            break;
+        }
+    }
+    return flag;
+
+}
+
+
+   window.onscroll=function(){
+		width=$(window).width();
+		var leftpx=Math.floor((width-1070)/2);
+		if(leftpx<0){return}
+		if($(window).scrollTop()>=200){
+			$('.logo').css({'top':0});
+		}else{
+		    $('.logo').css({'top':50});
+		}
+   }
+    //创建和初始化地图函数：
+    function initMap(){
+        createMap();//创建地图
+        setMapEvent();//设置地图事件
+        addMapControl();//向地图添加控件
+        addMarker();//向地图中添加marker
+    }
+
+    //创建地图函数：
+    function createMap(){
+        var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
+        var point = new BMap.Point(121.590605,38.92292);//定义一个中心点坐标
+        map.centerAndZoom(point,16);//设定地图的中心点和坐标并将地图显示在地图容器中
+        window.map = map;//将map变量存储在全局
+    }
+
+    //地图事件设置函数：
+    function setMapEvent(){
+        map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+        map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+        map.enableKeyboard();//启用键盘上下左右键移动地图
+		//map.enablePinchToZoom();
+    }
+
+    //地图控件添加函数：
+    function addMapControl(){
+        //向地图中添加缩放控件
+	var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+	map.addControl(ctrl_nav);
+        //向地图中添加缩略图控件
+	var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
+	map.addControl(ctrl_ove);
+        //向地图中添加比例尺控件
+	var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+	map.addControl(ctrl_sca);
+    }
+
+    //标注点数组
+    var markerArr = [{title:"大连软山网络有限公司",content:"大连市沙河口区尚品天城2号楼 2506室",point:"121.590605|38.92292",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+		 ];
+    //创建marker
+    function addMarker(){
+        for(var i=0;i<markerArr.length;i++){
+            var json = markerArr[i];
+            var p0 = json.point.split("|")[0];
+            var p1 = json.point.split("|")[1];
+            var point = new BMap.Point(p0,p1);
+			var iconImg = createIcon(json.icon);
+            var marker = new BMap.Marker(point,{icon:iconImg});
+			var iw = createInfoWindow(i);
+			var label = new BMap.Label(json.title,{"offset":new BMap.Size(json.icon.lb-json.icon.x+10,-20)});
+			label.setStyle({ padding : "6px", borderRadius : "20px"});
+			marker.setLabel(label);
+            map.addOverlay(marker);
+            label.setStyle({
+                        borderColor:"#808080",
+                        color:"#333",
+                        cursor:"pointer"
+            });
+
+			(function(){
+				var index = i;
+				var _iw = createInfoWindow(i);
+				var _marker = marker;
+				_marker.addEventListener("click",function(){
+				    this.openInfoWindow(_iw);
+			    });
+			    _iw.addEventListener("open",function(){
+				    _marker.getLabel().hide();
+			    })
+			    _iw.addEventListener("close",function(){
+				    _marker.getLabel().show();
+			    })
+				label.addEventListener("click",function(){
+				    _marker.openInfoWindow(_iw);
+			    })
+				if(!!json.isOpen){
+					label.hide();
+					_marker.openInfoWindow(_iw);
+				}
+			})()
+        }
+    }
+    //创建InfoWindow
+    function createInfoWindow(i){
+        var json = markerArr[i];
+        var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>"+json.content+"</div>");
+        return iw;
+    }
+    //创建一个Icon
+    function createIcon(json){
+        var icon = new BMap.Icon("http://jiandou.com/images/logo.png", new BMap.Size(json.w,json.h),{imageOffset: new BMap.Size(-json.l,-json.t),infoWindowOffset:new BMap.Size(json.lb+5,1),offset:new BMap.Size(json.x,json.h)})
+        return icon;
+    }
+
+    initMap();//创建和初始化地图
+</script>
+<script src="js/js2.js?v=1.1"></script>

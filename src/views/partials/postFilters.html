@@ -1,0 +1,17 @@
+<div class="filters middle">
+  <div class="clearfix">
+    <div class="pull-left">
+      <div class="filter-section category">
+        <div class="button-group" data-filter-group="category">
+
+          {{#each filters as |filter idx| }}
+            <a class="button button-no-round category-tab {{#if filter.active}}is-checked{{/if}}" data-filter="*" href="{{caseByTermUrl filter}}">{{filter.name}}</a>
+          {{/each}}
+
+        </div>
+      </div>
+
+    </div>
+    <div class="pull-right filter-section search"><input type="text" class="quicksearch" placeholder="Search"></div>
+  </div>
+</div>

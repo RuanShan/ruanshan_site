@@ -1,31 +1,105 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{{ pageTitle }}}</title>
-    <meta name="keywords"  content="{{@site.metaKeywords}}">
-    <meta name="description" content="{{@site.metaDescription}}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="/css/style.css" rel="stylesheet">
-    <script src="/js/lib/jquery.min.js"></script>
-  </head>
-  <body class="page-template  {{bodyCssClass}}">
-    <div id="page">
-      {{{@body}}}
 
-    </div>
-    <div class="tg-overlay-wrapper"></div>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no">
+  <title>软山</title>
+  <meta content="软山,软山网络,大连软山网络有限公司,设计,网页设计,开发,前端开发,CMS" name="Keywords">
+  <meta name="description" content="大连软山网络有限公司（简称软山网络）的公司理念：简单、简洁、简约。我们有高质量的设计和开发人才。我们重视员工。重视我们的客户。我们与我们的客户保持朋友一样的关系。我们积蓄着力量，创造着客户的梦想。我们一直在坚持...我们相信现在，相信未来...">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="author" content="RuanShan">
+  <link rel="apple-touch-icon" href="icon-touch.png">
+  <link rel="stylesheet" href="/css/style.css?v=1.4">
+  <link id="icon" rel="shortcut icon" href="http://www.ruanshan.com/logo/icon1.ico" media="screen" />
+  <script src="/js/jquery-1.8.0.min.js"></script>
+  <script src="/js/color.js"></script>
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?5db280c9147e7d5d7669eb5db84193c1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
 
-    <div class="layout-gotop gotop-test gotop-hmsr" style="display: block;">
-      {{> onlineService }}
-    </div>
-    <script src="/vendor/swiper-4.5.3/js/swiper.min.js"></script>
-    <script src="/vendor/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script src="/js/lib/qrcode.min.js"></script>
-    <script src="/js/sidebar.js"></script>
-    <script src="/js/app.js"></script>
-    <script src="/js/zakra-custom.js"></script>
-  </body>
+    body {
+      font-size: 100%;
+      font-family: "宋体", Helvetica, STHeiti, Droid Sans Fallback;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    .loading {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #f0fff0;
+      z-index: 9999;
+      top: 0
+    }
+
+    .number {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -15px;
+      margin-top: -15px;
+      z-index: 4;
+      text-align: center;
+      font-size: 24px;
+      font-family: "Trebuchet MS";
+      color: #42ccad;
+    }
+
+    .loading4.number {
+      color: #fff;
+    }
+
+    .la-anim-6 svg {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      z-index: -1;
+      display: block;
+      width: 150px;
+      height: 150px;
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+      pointer-events: none;
+    }
+
+    .la-anim-6.la-animate svg {
+      z-index: 100;
+    }
+
+    #la-anim-6-loader {
+      fill: #42ccad;
+      fill-opacity: 0.8;
+    }
+
+    #la-anim-6-border {
+      fill: #000;
+      fill-opacity: 0.1;
+    }
+  </style>
+</head>
+
+<body>
+
+  {{{@body}}}
+
+</body>
 
 </html>

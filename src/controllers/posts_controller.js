@@ -41,9 +41,25 @@ class PostsController {
     let sidebar = getSidebarContext()
 
     // 找到最近的12篇文章
-    // const termids = categories.map((term) => {
-    //   return term.id
-    // })
+    // 过滤条件
+    let terms = await SharedTerm.findAll({
+      where: {
+        parent_id: termPostRootId
+      }
+    })
+    let filters = terms.map((term) => {
+      return {
+        id: term.id,
+        name: term.name,
+        active: (term.id == termId)
+      }
+    })
+
+    filters.unshift({
+      id: null,
+      name: '全部',
+      active: (null == termId)
+    })
 
     const { rows, count } = await SharedPost.findAndCount(options)
     let pages = Math.ceil( count/paging.paginate )
@@ -60,7 +76,7 @@ class PostsController {
         // Primary page content
         posts,
         pagination,
-        sidebar
+        filters,
       })
       await ctx.render('posts/index', context)
 
@@ -71,43 +87,58 @@ class PostsController {
   }
   async show(ctx) {
     const id = ctx.params.id
-    let sidebar = await getSidebarContext()
+
+    let relatedPosts= []
 
     let options = { include:[{association:'Covers'},{ association: 'Terms'}], where: {}  }
     let post = await SharedPost.findByPk(id,options)
+    let term = post.Terms.find((term)=> term.rootId== termPostRootId)
 
-    let prePost = await SharedPost.findOne({
-       where: {
-         publish_at: {
-           [Op.gte]: post.publish_at,
-           [Op.ne]: null
+    if( term ){
+      relatedPosts = await SharedPost.findAll({
+         include:[{association:'Covers'},{ association: 'Terms', where:{ id:  term.id }}],
+         where: {
+
+           publish_at: {
+             [Op.ne]: null
+           },
+           id: {
+             [Op.ne]: post.id
+           }
          },
-         id: {
-           [Op.ne]: post.id
-         }
-       },
-       order: [
-         ['publish_at', 'DESC']
-       ]
-     })
+         order: [
+           ['publish_at', 'DESC']
+         ],
+         limit: 3
+       })
 
-    let nextPost = await SharedPost.findOne({ where:{
-       publish_at: {
-         [Op.lte]: post.publish_at,
-         [Op.ne]: null
-       },
-       id: {
-         [Op.ne]: post.id
+       if( relatedPosts.length == 0 ){
+         relatedPosts = await SharedPost.findAll({
+            include:[{association:'Covers'},{ association: 'Terms' }],
+            where: {
+
+              publish_at: {
+                [Op.ne]: null
+              },
+              id: {
+                [Op.ne]: post.id
+              }
+            },
+            order: [
+              ['publish_at', 'DESC']
+            ],
+            limit: 3
+          })
        }
-    }, order:[['publish_at', 'DESC']]})
+    }
+
+
    // get previous/next post
 
     let context = {
       currentPage,
-      sidebar,
       post,
-      prePost,
-      nextPost
+      relatedPosts
     }
     await ctx.render('posts/show', context)
   }

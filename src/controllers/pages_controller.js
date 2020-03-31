@@ -77,6 +77,18 @@ class PagesController {
     await ctx.render('faq', context)
 
   }
+
+  async cases(ctx) {
+    let currentTerm = {
+      name: '案例'
+    }
+    let context = {
+      currentPage,
+      currentTerm
+    }
+    await ctx.render('case', context)
+
+  }
 }
 
 async function getCases() {

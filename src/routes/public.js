@@ -30,6 +30,11 @@ router.get( '/case/category/:termId', casesController.index );
 router.get( '/case/tag/:tagId', casesController.show );
 router.get( '/case/detail/:id', casesController.show );
 router.get( '/faq', pageController.faq );
+router.get( '/index.html', pageController.index );
+router.get( '/posts.html', postsController.index );
+router.get( '/cases.html', pageController.cases );
+router.get( '/about-us.html', pageController.aboutUs );
+
 // // router.use( '/search', require( './search' ) );
 // // router.use( '/:year/:month', require( './archive-year-month' ) );
 // router.get( '/:year/:month/:slug', require( './single' ) );
