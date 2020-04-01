@@ -12,7 +12,7 @@ const getPagination = require('../helpers/pagination');
 const { mainmenu } = require( '../services/site' );
 
 const Op = Sequelize.Op;
-const currentPage = { type: 'news', hasSidebar: true }
+const currentPage = { type: 'news'}
 
 
 class PostsController {
@@ -32,7 +32,14 @@ class PostsController {
       options.include.push({ association: 'Terms', where:{ id:termId}})
       currentTerm = SharedTerm.findByPk(termId)
     }else{
-      options.include.push({ association: 'Terms'})
+
+      options.include.push({
+        association: 'Terms' ,
+        where: {
+          parent_id: termPostRootId
+        }
+      })
+
       currentTerm = SharedTerm.findByPk(termPostRootId)
     }
 
@@ -61,8 +68,12 @@ class PostsController {
       active: (null == termId)
     })
 
-    const { rows, count } = await SharedPost.findAndCount(options)
-    let pages = Math.ceil( count/paging.paginate )
+    const {
+      rows,
+      count
+    } = await SharedPost.findAndCountAll(options)
+    let pages = Math.ceil(count / paging.paginate)
+
     console.debug( " pages, total termId", pages, count, termId)
     const posts = rows
     const pagination = { page: paging.page, pageCount: pages }
@@ -70,9 +81,8 @@ class PostsController {
     //Get paginated list of notes
     try {
       let context = await Promise.hash({
-        currentPage: currentPage, // 当前页面信息, 决定当前页面类型，
+        currentPage, // 当前页面信息, 决定当前页面类型，
         currentTerm,
-        pages: mainmenu,
         // Primary page content
         posts,
         pagination,
@@ -136,7 +146,7 @@ class PostsController {
    // get previous/next post
 
     let context = {
-      currentPage,
+      currentPage, // 当前页面信息, 决定当前页面类型，
       post,
       relatedPosts
     }

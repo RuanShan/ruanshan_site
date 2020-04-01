@@ -8,7 +8,6 @@ const { urlBase, backendUrl, demoUrl } = require('../config/game')
 
 function isCurrentUrl( url, options ){
   let currentUrl =  options.data.koa.request.path
-
   if ( url == currentUrl ) {
       return options.fn(this);
   }
