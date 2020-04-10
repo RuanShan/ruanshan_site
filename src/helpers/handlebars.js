@@ -45,6 +45,11 @@ function caseUrl(doc, options) {
 function caseByTermUrl(doc, options) {
   return doc.id ? `/case/category/${doc.id}` : '/case'
 }
+
+function postByTermUrl(doc, options) {
+  return doc.id ? `/posts/category/${doc.id}` : '/posts'
+}
+
 function pageUrl( page, options) {
   let url =  options.data.koa.request.path
   return (`${url}?page=${page}`);
@@ -143,7 +148,7 @@ module.exports = {
   pageTitle,
   isCurrentUrl, ifDevice,
   gameDemoUrl, gameBackendUrl,
-  postUrl,  caseUrl, pageUrl, caseByTermUrl,
+  postUrl,  caseUrl, pageUrl, caseByTermUrl, postByTermUrl,
   postCoverUrl,
   bodyCssClass,
   gameRoundSlideUrl,

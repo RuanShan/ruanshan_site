@@ -5,7 +5,7 @@
         <div class="button-group" data-filter-group="category">
 
           {{#each filters as |filter idx| }}
-            <a class="button button-no-round category-tab {{#if filter.active}}is-checked{{/if}}" data-filter="*" href="{{caseByTermUrl filter}}">{{filter.name}}</a>
+            <a class="button button-no-round category-tab {{#if filter.active}}is-checked{{/if}}" data-filter="*" href="{{postByTermUrl filter}}">{{filter.name}}</a>
           {{/each}}
 
         </div>
