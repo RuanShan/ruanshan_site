@@ -218,24 +218,9 @@ img{max-width:100%}
 .aotuwx{padding-bottom:10px}
 .aotuwx-qrcode{display:block;width:100%;max-width:224px;margin:0 auto 10px}
 .aotuwx-slogan{text-align:center}
-.header{position:relative;padding:30px 0;width:1070px;margin:auto;clear:both}
-.logo{position:absolute;top:30px;left:0;background-color:#11ca5b;width:118px;height:75px;z-index:100}
-.logo div{background:url(../img/logo.svg);-webkit-background-size:cover;-moz-background-size:cover;background-size:cover;width:98px;height:38px;margin:25px 10px 10px 10px}
-.menu{height:65px;width:685px;float:right;margin-top:19px}
-.menu li{float:left;color:#fff;font-size:16px;font-family:'微软雅黑';height:50px;line-height:50px;padding:0 15px 0 15px;cursor:pointer;position:relative}
-.menu li.selected,.menu li:hover{border-bottom:1px solid #fff}
-.menu li a{color:#fff}
-.service{background:url(../img/service.png) no-repeat;background-position:center;padding:20px}
-.case{background:url(../img/case.png) no-repeat;background-position:center;padding:20px}
-.h5share{background:url(../img/h5.png) no-repeat;background-position:center;padding:20px}
-.h5ketang{background:url(../img/01.png) no-repeat;background-position:center;padding:20px}
-.h5tools{background:url(../img/h5-tool.png) no-repeat;background-position:center;padding:20px}
-.about{background:url(../img/about.png) no-repeat;background-position:center;padding:20px}
+
 @media (max-width:1070px){.header{width:100%;height:50px;background:#000;position:fixed;top:0;z-index:99;padding:0}
-.menu{margin-top:0}
-.logo{height:50px;top:0}
-.logo div{margin-top:8px;-webkit-transform-origin:center;-moz-transform-origin:center;-o-transform-origin:center;-ms-transform-origin:center;transform-origin:center;-webkit-transform:scale(.8);-moz-transform:scale(.8);-o-transform:scale(.8);-ms-transform:scale(.8);transform:scale(.8)}
-.title{margin-top:230px}
+ .title{margin-top:230px}
 .page-header{overflow:hidden}
 .indication{width:100%;margin-left:-50%}
 .page-body{width:100%;overflow:hidden}
@@ -247,9 +232,9 @@ img{max-width:100%}
 .part3 .content{left:3%}
 .col2{width:405px}
 }
-@media (max-width:767px){.mod-container{padding-top:51px}
-.page-header{height:auto}
-.header{padding:0}
+@media (max-width:767px){
+.mod-container{padding-top:51px}
+
 .inner{width:100%;overflow:hidden;padding:0}
 .indication{text-align:center;bottom:50px}
 .links{font-size:12px}
@@ -269,11 +254,7 @@ img{max-width:100%}
 .foot1 .inner{padding-left:15px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
 .cor-logo{width:23%;height:100px}
 }
-.blue .logo{background-color:#6190e8}
-.blue .page-header{background:#6190e8}
-.blue .col-btn.active div{background:#6190e8}
-.blue .row-btn.active div{background:#6190e8}
-.blue .color2{color:#6190e8}
+ 
 
 .banner{position:relative;background-color:#6190e8;overflow:hidden;-webkit-transition:background-color ease 1s;-moz-transition:background-color ease 1s;-o-transition:background-color ease 1s;-ms-transition:background-color ease 1s;transition:background-color ease 1s}
 .banner-bg{position:absolute;z-index:1;top:0;left:0;right:0;bottom:0;background:url(../img/ball_1408.png) no-repeat;-webkit-background-size:cover;-moz-background-size:cover;background-size:cover;background-position:center 80%;opacity:.02}

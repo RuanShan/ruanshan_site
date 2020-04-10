@@ -1,17 +1,13 @@
-<div class="filters middle">
+<div class="filters middle cates">
   <div class="clearfix">
     <div class="pull-left">
-      <div class="filter-section category">
-        <div class="button-group" data-filter-group="category">
-
+      <ul class="filter-section category">
           {{#each filters as |filter idx| }}
-            <a class="button button-no-round category-tab {{#if filter.active}}is-checked{{/if}}" data-filter="*" href="{{postByTermUrl filter}}">{{filter.name}}</a>
+        <li class="button-group" data-filter-group="category">    <a class="button button-no-round category-tab {{#if filter.active}}is-checked{{/if}}" data-filter="*" href="{{postByTermUrl filter}}">{{filter.name}}</a></li>
           {{/each}}
-
-        </div>
-      </div>
+      </ul>
 
     </div>
-    <div class="pull-right filter-section search"><input type="text" class="quicksearch" placeholder="Search"></div>
+    <div class="pull-right filter-section search"> </div>
   </div>
 </div>
