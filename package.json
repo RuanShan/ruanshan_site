@@ -64,7 +64,7 @@
     "pm2": "^2.10.4",
     "promise-hash": "^1.2.0",
     "randexp": "^0.4.9",
-    "sequelize": "^4.44.3",
+    "sequelize": "^5.15.1",
     "sequelize-paginate": "^1.1.6",
     "stylus": "^0.54.5",
     "uuid": "^3.2.1",
