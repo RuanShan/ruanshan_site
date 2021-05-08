@@ -38,7 +38,7 @@
     "faker": "^4.1.0",
     "fs-extra": "^6.0.1",
     "ghost-paginator": "^0.1.2",
-    "handlebars": "^4.1.2",
+    "handlebars": "^4.7.7",
     "handlebars-paginate": "^0.1.0",
     "interval-cache": "^1.0.0",
     "ioredis": "^3.2.2",
